@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Apple } from "lucide-react";
 
+
+
 export default function CTA() {
   const ctaRef = useRef<HTMLDivElement>(null);
 
