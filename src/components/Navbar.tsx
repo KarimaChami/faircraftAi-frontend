@@ -60,7 +60,7 @@ export default function Navbar() {
         {/* Right Buttons */}
         <div className="hidden md:flex gap-4 items-center">
           <Link
-            href="#login"
+            href="/auth"
             className="bg-gray-100 text-black px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-gray-200 transition-colors nav-item"
           >
             Log In
