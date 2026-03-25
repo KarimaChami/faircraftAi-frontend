@@ -89,9 +89,9 @@ export default function SettingsSection() {
   return (
     <div className="space-y-6" ref={settingsRef}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-xl p-8 text-white shadow-lg">
+      <div className="bg-[#C8FF00] rounded-xl p-8 text-[#0A0A0A] shadow-lg">
         <h1 className="text-3xl font-bold mb-2">Account Settings</h1>
-        <p className="text-emerald-100">Manage your profile and account preferences</p>
+        <p className="text-[#0A0A0A]">Manage your profile and account preferences</p>
       </div>
 
       {/* Success/Error Message */}
@@ -110,24 +110,24 @@ export default function SettingsSection() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Profile Section */}
         <div className="lg:col-span-2">
-          <div className="settings-card bg-white rounded-xl shadow-md border border-slate-200 p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Profile Information</h2>
+          <div className="settings-card bg-white rounded-xl shadow-md border border-black/10 p-8">
+            <h2 className="text-2xl font-bold text-[#0A0A0A] mb-6">Profile Information</h2>
 
             {!isEditing ? (
               <div className="space-y-6">
                 {/* Profile Header */}
-                <div className="flex items-start gap-6 pb-6 border-b border-slate-200">
-                  <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center text-white">
+                <div className="flex items-start gap-6 pb-6 border-b border-black/10">
+                  <div className="w-24 h-24 bg-[#C8FF00] rounded-lg flex items-center justify-center text-[#0A0A0A]">
                     <UserIcon size={48} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900">
+                    <h3 className="text-2xl font-bold text-[#0A0A0A]">
                       {user.first_name} {user.last_name}
                     </h3>
-                    <p className="text-gray-600 mt-1">{user.email}</p>
+                    <p className="text-[#6B7280] mt-1">{user.email}</p>
                     <div className="mt-3 flex items-center gap-2">
-                      <Shield size={16} className="text-emerald-600" />
-                      <span className="text-sm font-semibold text-emerald-600 capitalize">
+                      <Shield size={16} className="text-[#C8FF00]" />
+                      <span className="text-sm font-semibold text-[#0A0A0A] capitalize">
                         {user.role} Account
                       </span>
                     </div>
@@ -137,37 +137,37 @@ export default function SettingsSection() {
                 {/* User Details */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide">
+                    <label className="text-xs font-semibold text-[#6B7280] uppercase tracking-wide">
                       First Name
                     </label>
-                    <p className="text-lg font-semibold text-gray-900 mt-2">
+                    <p className="text-lg font-semibold text-[#0A0A0A] mt-2">
                       {user.first_name}
                     </p>
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide">
+                    <label className="text-xs font-semibold text-[#6B7280] uppercase tracking-wide">
                       Last Name
                     </label>
-                    <p className="text-lg font-semibold text-gray-900 mt-2">
+                    <p className="text-lg font-semibold text-[#0A0A0A] mt-2">
                       {user.last_name}
                     </p>
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide flex items-center gap-2">
+                    <label className="text-xs font-semibold text-[#6B7280] uppercase tracking-wide flex items-center gap-2">
                       <Mail size={14} /> Email
                     </label>
-                    <p className="text-lg font-semibold text-gray-900 mt-2">
+                    <p className="text-lg font-semibold text-[#0A0A0A] mt-2">
                       {user.email}
                     </p>
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-gray-600 uppercase tracking-wide flex items-center gap-2">
+                    <label className="text-xs font-semibold text-[#6B7280] uppercase tracking-wide flex items-center gap-2">
                       <Calendar size={14} /> Member Since
                     </label>
-                    <p className="text-lg font-semibold text-gray-900 mt-2">
+                    <p className="text-lg font-semibold text-[#0A0A0A] mt-2">
                       {formattedDate}
                     </p>
                   </div>
@@ -175,7 +175,7 @@ export default function SettingsSection() {
 
                 <button
                   onClick={() => setIsEditing(true)}
-                  className="mt-6 flex items-center gap-2 px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium"
+                  className="mt-6 flex items-center gap-2 px-6 py-2 bg-[#C8FF00] text-[#0A0A0A] rounded-lg hover:bg-[#C8FF00]/90 transition-colors font-medium"
                 >
                   <Edit2 size={18} />
                   Edit Profile
@@ -190,7 +190,7 @@ export default function SettingsSection() {
                 className="space-y-4"
               >
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-sm font-semibold text-[#0A0A0A] mb-2">
                     First Name
                   </label>
                   <input
@@ -198,12 +198,12 @@ export default function SettingsSection() {
                     name="first_name"
                     value={formData.first_name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600"
+                    className="w-full px-4 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-sm font-semibold text-[#0A0A0A] mb-2">
                     Last Name
                   </label>
                   <input
@@ -211,12 +211,12 @@ export default function SettingsSection() {
                     name="last_name"
                     value={formData.last_name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600"
+                    className="w-full px-4 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  <label className="block text-sm font-semibold text-[#0A0A0A] mb-2">
                     Email
                   </label>
                   <input
@@ -225,9 +225,9 @@ export default function SettingsSection() {
                     value={formData.email}
                     onChange={handleChange}
                     disabled
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50 cursor-not-allowed"
+                    className="w-full px-4 py-2 border border-black/10 rounded-lg bg-black/5 cursor-not-allowed"
                   />
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-[#6B7280] mt-1">
                     Email cannot be changed
                   </p>
                 </div>
@@ -236,7 +236,7 @@ export default function SettingsSection() {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="flex-1 flex items-center justify-center gap-2 px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 disabled:opacity-50 transition-colors font-medium"
+                    className="flex-1 flex items-center justify-center gap-2 px-6 py-2 bg-[#C8FF00] text-[#0A0A0A] rounded-lg hover:bg-[#C8FF00]/90 disabled:opacity-50 transition-colors font-medium"
                   >
                     <Save size={18} />
                     {saving ? "Saving..." : "Save Changes"}
@@ -244,7 +244,7 @@ export default function SettingsSection() {
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="flex-1 flex items-center justify-center gap-2 px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+                    className="flex-1 flex items-center justify-center gap-2 px-6 py-2 bg-black/5 text-[#0A0A0A] rounded-lg hover:bg-black/10 transition-colors font-medium border border-black/10"
                   >
                     <X size={18} />
                     Cancel
@@ -257,24 +257,24 @@ export default function SettingsSection() {
 
         {/* Quick Stats */}
         <div className="lg:col-span-1 space-y-4">
-          <div className="settings-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Account Status</h3>
+          <div className="settings-card bg-[#C8FF00]/10 rounded-xl p-6 border border-[#C8FF00]/20">
+            <h3 className="text-lg font-bold text-[#0A0A0A] mb-4">Account Status</h3>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-700">Status</span>
+                <span className="text-sm text-[#0A0A0A]">Status</span>
                 <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
                   Active
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-700">Role</span>
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold capitalize">
+                <span className="text-sm text-[#0A0A0A]">Role</span>
+                <span className="px-3 py-1 bg-[#C8FF00]/20 text-[#0A0A0A] rounded-full text-xs font-semibold capitalize">
                   {user.role}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-700">Verification</span>
-                <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-semibold">
+                <span className="text-sm text-[#0A0A0A]">Verification</span>
+                <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
                   Verified
                 </span>
               </div>
@@ -282,13 +282,13 @@ export default function SettingsSection() {
           </div>
 
           {/* Security Section */}
-          <div className="settings-card bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Security</h3>
+          <div className="settings-card bg-black/5 rounded-xl p-6 border border-black/10">
+            <h3 className="text-lg font-bold text-[#0A0A0A] mb-4">Security</h3>
             <div className="space-y-3">
-              <button className="w-full text-left px-4 py-2 bg-white hover:bg-purple-50 border border-purple-200 rounded-lg text-sm font-medium text-gray-900 transition-colors">
+              <button className="w-full text-left px-4 py-2 bg-white hover:bg-black/2 border border-black/10 rounded-lg text-sm font-medium text-[#0A0A0A] transition-colors">
                 Change Password
               </button>
-              <button className="w-full text-left px-4 py-2 bg-white hover:bg-purple-50 border border-purple-200 rounded-lg text-sm font-medium text-gray-900 transition-colors">
+              <button className="w-full text-left px-4 py-2 bg-white hover:bg-black/2 border border-black/10 rounded-lg text-sm font-medium text-[#0A0A0A] transition-colors">
                 Two-Factor Auth
               </button>
               <button className="w-full text-left px-4 py-2 bg-white hover:bg-red-50 border border-red-200 rounded-lg text-sm font-medium text-red-600 transition-colors">
@@ -298,8 +298,8 @@ export default function SettingsSection() {
           </div>
 
           {/* Notifications */}
-          <div className="settings-card bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 border border-orange-200">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Preferences</h3>
+          <div className="settings-card bg-[#C8FF00]/10 rounded-xl p-6 border border-[#C8FF00]/20">
+            <h3 className="text-lg font-bold text-[#0A0A0A] mb-4">Preferences</h3>
             <div className="space-y-3">
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
@@ -307,7 +307,7 @@ export default function SettingsSection() {
                   defaultChecked
                   className="w-4 h-4 rounded"
                 />
-                <span className="text-sm text-gray-700">Email Notifications</span>
+                <span className="text-sm text-[#0A0A0A]">Email Notifications</span>
               </label>
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
@@ -315,14 +315,14 @@ export default function SettingsSection() {
                   defaultChecked
                   className="w-4 h-4 rounded"
                 />
-                <span className="text-sm text-gray-700">Price Alerts</span>
+                <span className="text-sm text-[#0A0A0A]">Price Alerts</span>
               </label>
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
                   type="checkbox"
                   className="w-4 h-4 rounded"
                 />
-                <span className="text-sm text-gray-700">Weekly Report</span>
+                <span className="text-sm text-[#0A0A0A]">Weekly Report</span>
               </label>
             </div>
           </div>

@@ -44,10 +44,10 @@ export default function DashboardLayout({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading dashboard...</p>
+          <div className="w-12 h-12 border-4 border-black/10 border-t-[#C8FF00] rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-[#6B7280]">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -66,28 +66,28 @@ export default function DashboardLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-white">
       {/* Sidebar */}
       <aside
-        className="sidebar fixed left-0 top-0 w-64 h-screen bg-white shadow-lg border-r border-slate-200 p-6 overflow-y-auto hidden md:flex flex-col"
+        className="sidebar fixed left-0 top-0 w-64 h-screen bg-white shadow-lg border-r border-black/10 p-6 overflow-y-auto hidden md:flex flex-col"
         style={{ zIndex: 40 }}
       >
         {/* Logo */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">FC</span>
+            <div className="w-8 h-8 bg-[#C8FF00] rounded-lg flex items-center justify-center">
+              <span className="text-[#0A0A0A] font-bold text-sm">FC</span>
             </div>
-            <span className="font-bold text-lg text-gray-900">FairCraft</span>
+            <span className="font-bold text-lg text-[#0A0A0A]">FairCraft</span>
           </div>
-          <p className="text-xs text-gray-500">AI-Powered Pricing</p>
+          <p className="text-xs text-[#6B7280]">AI-Powered Pricing</p>
         </div>
 
         {/* User Info */}
-        <div className="mb-8 p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
-          <p className="text-sm font-semibold text-gray-900">{user.first_name} {user.last_name}</p>
-          <p className="text-xs text-gray-600">{user.email}</p>
-          <div className="mt-2 text-xs font-medium text-blue-600 capitalize px-2 py-1 bg-blue-200 rounded w-fit">
+        <div className="mb-8 p-4 bg-[#C8FF00]/10 rounded-lg border border-[#C8FF00]/20">
+          <p className="text-sm font-semibold text-[#0A0A0A]">{user.first_name} {user.last_name}</p>
+          <p className="text-xs text-[#6B7280]">{user.email}</p>
+          <div className="mt-2 text-xs font-medium text-[#0A0A0A] capitalize px-2 py-1 bg-[#C8FF00] rounded w-fit">
             {user.role}
           </div>
         </div>
@@ -105,8 +105,8 @@ export default function DashboardLayout({
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
                   activeSection === item.id
-                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-[#C8FF00] text-[#0A0A0A] shadow-md"
+                    : "text-[#0A0A0A] hover:bg-black/5"
                 }`}
               >
                 <Icon size={20} />
@@ -119,7 +119,7 @@ export default function DashboardLayout({
         {/* Logout Button */}
         <button
           onClick={logout}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition-all duration-300 border border-red-200"
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[#0A0A0A] hover:bg-black/5 transition-all duration-300 border border-black/10"
         >
           <LogOut size={20} />
           <span className="font-medium">Logout</span>
@@ -127,16 +127,16 @@ export default function DashboardLayout({
       </aside>
 
       {/* Mobile Header */}
-      <header className="md:hidden bg-white border-b border-slate-200 p-4 flex items-center justify-between sticky top-0 z-50">
+      <header className="md:hidden bg-white border-b border-black/10 p-4 flex items-center justify-between sticky top-0 z-50">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">FC</span>
+          <div className="w-8 h-8 bg-[#C8FF00] rounded-lg flex items-center justify-center">
+            <span className="text-[#0A0A0A] font-bold text-sm">FC</span>
           </div>
-          <span className="font-bold text-lg text-gray-900">FairCraft</span>
+          <span className="font-bold text-lg text-[#0A0A0A]">FairCraft</span>
         </div>
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-2 hover:bg-gray-100 rounded-lg"
+          className="p-2 hover:bg-black/5 rounded-lg"
         >
           <svg
             className="w-6 h-6"
@@ -156,7 +156,7 @@ export default function DashboardLayout({
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 p-4 space-y-2">
+        <div className="md:hidden bg-white border-b border-black/10 p-4 space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -169,8 +169,8 @@ export default function DashboardLayout({
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
                   activeSection === item.id
-                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-[#C8FF00] text-[#0A0A0A]"
+                    : "text-[#0A0A0A] hover:bg-black/5"
                 }`}
               >
                 <Icon size={20} />
@@ -180,7 +180,7 @@ export default function DashboardLayout({
           })}
           <button
             onClick={logout}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition-all duration-300 border border-red-200"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-[#0A0A0A] hover:bg-black/5 transition-all duration-300 border border-black/10"
           >
             <LogOut size={20} />
             <span className="font-medium">Logout</span>

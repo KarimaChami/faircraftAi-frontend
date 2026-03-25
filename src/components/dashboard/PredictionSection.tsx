@@ -131,9 +131,9 @@ export default function PredictionSection({
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-8 text-white shadow-lg">
+      <div className="bg-[#C8FF00] rounded-xl p-8 text-[#0A0A0A] shadow-lg">
         <h1 className="text-3xl font-bold mb-2">Price Prediction Tool</h1>
-        <p className="text-blue-100">
+        <p className="text-[#0A0A0A]">
           Enter your product details to get AI-powered price recommendations with market analysis
         </p>
       </div>
@@ -144,11 +144,11 @@ export default function PredictionSection({
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="bg-white rounded-xl p-6 shadow-md border border-slate-200 space-y-4"
+            className="bg-white rounded-xl p-6 shadow-md border border-black/10 space-y-4"
           >
             {/* Product Title */}
             <div className="form-group">
-              <label className="block text-sm font-semibold text-gray-900 mb-2">
+              <label className="block text-sm font-semibold text-[#0A0A0A] mb-2">
                 Product Title *
               </label>
               <textarea
@@ -157,17 +157,17 @@ export default function PredictionSection({
                 onChange={handleChange}
                 required
                 placeholder="e.g., Handmade Wool Carpet with Traditional Patterns"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"
+                className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00] resize-none"
                 rows={3}
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-[#6B7280] mt-1">
                 Length: {formData.title_length} | Keywords: {formData.keyword_count}
               </p>
             </div>
 
             {/* Category */}
             <div className="form-group">
-              <label className="block text-sm font-semibold text-gray-900 mb-2">
+              <label className="block text-sm font-semibold text-[#0A0A0A] mb-2">
                 Product Category *
               </label>
               <div className="relative">
@@ -175,7 +175,7 @@ export default function PredictionSection({
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 appearance-none bg-white"
+                  className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00] appearance-none bg-white"
                 >
                   {PRODUCT_CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>
@@ -184,7 +184,7 @@ export default function PredictionSection({
                   ))}
                 </select>
                 <ChevronDown
-                  className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#6B7280]"
                   size={20}
                 />
               </div>
@@ -192,7 +192,7 @@ export default function PredictionSection({
 
             {/* Shop Name */}
             <div className="form-group">
-              <label className="block text-sm font-semibold text-gray-900 mb-2">
+              <label className="block text-sm font-semibold text-[#0A0A0A] mb-2">
                 Shop Name *
               </label>
               <input
@@ -202,17 +202,17 @@ export default function PredictionSection({
                 onChange={handleChange}
                 required
                 placeholder="Your shop name"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
               />
             </div>
 
             {/* Rating Section */}
-            <div className="form-group pt-4 border-t border-gray-200">
-              <p className="text-sm font-semibold text-gray-900 mb-3">Product Metrics</p>
+            <div className="form-group pt-4 border-t border-black/10">
+              <p className="text-sm font-semibold text-[#0A0A0A] mb-3">Product Metrics</p>
 
               <div className="space-y-3">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-semibold text-[#0A0A0A] mb-1">
                     Rating (0-5)
                   </label>
                   <input
@@ -223,12 +223,12 @@ export default function PredictionSection({
                     min="0"
                     max="5"
                     step="0.1"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-semibold text-[#0A0A0A] mb-1">
                     Number of Reviews
                   </label>
                   <input
@@ -237,12 +237,12 @@ export default function PredictionSection({
                     value={formData.reviews_numeric}
                     onChange={handleChange}
                     min="0"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-semibold text-[#0A0A0A] mb-1">
                     Rating Score (0-10)
                   </label>
                   <input
@@ -253,12 +253,12 @@ export default function PredictionSection({
                     min="0"
                     max="10"
                     step="0.1"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-semibold text-[#0A0A0A] mb-1">
                     Popularity Index (0-100)
                   </label>
                   <input
@@ -269,19 +269,19 @@ export default function PredictionSection({
                     min="0"
                     max="100"
                     step="1"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
               </div>
             </div>
 
             {/* Cost Section */}
-            <div className="form-group pt-4 border-t border-gray-200">
-              <p className="text-sm font-semibold text-gray-900 mb-3">Cost Breakdown</p>
+            <div className="form-group pt-4 border-t border-black/10">
+              <p className="text-sm font-semibold text-[#0A0A0A] mb-3">Cost Breakdown</p>
 
               <div className="space-y-3">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-semibold text-[#0A0A0A] mb-1">
                     Material Cost ($) *
                   </label>
                   <input
@@ -292,12 +292,12 @@ export default function PredictionSection({
                     required
                     min="0"
                     step="0.01"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-semibold text-[#0A0A0A] mb-1">
                     Labor Hours *
                   </label>
                   <input
@@ -308,12 +308,12 @@ export default function PredictionSection({
                     required
                     min="0"
                     step="0.5"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-semibold text-[#0A0A0A] mb-1">
                     Hourly Rate ($) *
                   </label>
                   <input
@@ -324,12 +324,12 @@ export default function PredictionSection({
                     required
                     min="0"
                     step="0.01"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-xs font-semibold text-[#0A0A0A] mb-1">
                     Overhead Cost ($) *
                   </label>
                   <input
@@ -340,7 +340,7 @@ export default function PredictionSection({
                     required
                     min="0"
                     step="0.01"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-3 py-2 border border-black/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C8FF00]"
                   />
                 </div>
               </div>
@@ -350,7 +350,7 @@ export default function PredictionSection({
             <div className="form-group pt-4 flex gap-2">
               <button
                 type="submit"
-                className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:shadow-lg transition-all font-semibold"
+                className="flex-1 px-4 py-2 bg-[#C8FF00] text-[#0A0A0A] rounded-lg hover:bg-[#C8FF00]/90 transition-all font-semibold"
               >
                 Predict Price
               </button>
@@ -358,7 +358,7 @@ export default function PredictionSection({
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all font-semibold"
+                  className="px-4 py-2 bg-black/5 text-[#0A0A0A] rounded-lg hover:bg-black/10 transition-all font-semibold border border-black/10"
                 >
                   Reset
                 </button>

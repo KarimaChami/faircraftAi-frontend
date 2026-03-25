@@ -80,10 +80,10 @@ export default function HomeSection() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <div className="h-32 bg-gradient-to-br from-slate-200 to-slate-300 rounded-xl animate-pulse"></div>
+        <div className="h-32 bg-black/5 rounded-xl animate-pulse"></div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-32 bg-slate-200 rounded-xl animate-pulse"></div>
+            <div key={i} className="h-32 bg-black/5 rounded-xl animate-pulse"></div>
           ))}
         </div>
       </div>
@@ -104,35 +104,35 @@ export default function HomeSection() {
       label: "Total Predictions",
       value: statistics?.total_predictions || 0,
       icon: <BarChart3 size={24} />,
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-[#C8FF00] to-[#C8FF00]",
       subtext: `${statistics?.predictions_this_month || 0} this month`,
     },
     {
       label: "Average Price",
       value: `$${(statistics?.average_price || 0).toFixed(2)}`,
       icon: <DollarSign size={24} />,
-      gradient: "from-green-500 to-green-600",
+      gradient: "from-[#C8FF00] to-[#C8FF00]",
     },
     {
       label: "Average Margin",
       value: `${(statistics?.average_margin || 0).toFixed(1)}%`,
       icon: <TrendingUp size={24} />,
-      gradient: "from-purple-500 to-purple-600",
+      gradient: "from-[#C8FF00] to-[#C8FF00]",
     },
     {
       label: "Total Profit",
       value: `$${(statistics?.total_profit || 0).toFixed(2)}`,
       icon: <DollarSign size={24} />,
-      gradient: "from-orange-500 to-orange-600",
+      gradient: "from-[#C8FF00] to-[#C8FF00]",
     },
   ];
 
   return (
     <div className="space-y-8">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-8 text-white shadow-lg">
+      <div className="bg-[#C8FF00] rounded-xl p-8 text-[#0A0A0A] shadow-lg">
         <h1 className="text-4xl font-bold mb-2">Welcome back, {user?.first_name}! 👋</h1>
-        <p className="text-blue-100 text-lg">
+        <p className="text-[#0A0A0A] text-lg">
           Track your predictions and maximize your profits with AI-powered pricing insights
         </p>
       </div>
@@ -142,17 +142,17 @@ export default function HomeSection() {
         {statCards.map((card, index) => (
           <div
             key={index}
-            className={`stat-card bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300 border border-slate-200 cursor-pointer`}
+            className={`stat-card bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300 border border-black/10 cursor-pointer`}
           >
             <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-gray-600 text-sm font-medium">{card.label}</p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">{card.value}</p>
+                <p className="text-[#6B7280] text-sm font-medium">{card.label}</p>
+                <p className="text-3xl font-bold text-[#0A0A0A] mt-2">{card.value}</p>
                 {card.subtext && (
-                  <p className="text-xs text-gray-500 mt-1">{card.subtext}</p>
+                  <p className="text-xs text-[#6B7280] mt-1">{card.subtext}</p>
                 )}
               </div>
-              <div className={`bg-gradient-to-br ${card.gradient} p-3 rounded-lg text-white`}>
+              <div className={`bg-gradient-to-br ${card.gradient} p-3 rounded-lg text-[#0A0A0A]`}>
                 {card.icon}
               </div>
             </div>
@@ -162,19 +162,19 @@ export default function HomeSection() {
 
       {/* Top Category Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white rounded-xl p-6 shadow-md border border-slate-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">Top Product Category</h2>
+        <div className="lg:col-span-2 bg-white rounded-xl p-6 shadow-md border border-black/10">
+          <h2 className="text-xl font-bold text-[#0A0A0A] mb-6">Top Product Category</h2>
           <div className="flex items-center gap-6">
-            <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center text-white text-4xl font-bold">
+            <div className="w-24 h-24 bg-[#C8FF00] rounded-lg flex items-center justify-center text-[#0A0A0A] text-4xl font-bold">
               {statistics?.top_product_category?.[0] || "A"}
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-900">
+              <p className="text-2xl font-bold text-[#0A0A0A]">
                 {statistics?.top_product_category || "N/A"}
               </p>
-              <p className="text-gray-600 mt-2">Most predicted product category</p>
+              <p className="text-[#6B7280] mt-2">Most predicted product category</p>
               <div className="mt-4 flex gap-2">
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                <button className="px-4 py-2 bg-[#C8FF00] text-[#0A0A0A] rounded-lg hover:bg-[#C8FF00]/90 transition-colors text-sm font-medium">
                   View Details
                 </button>
               </div>
@@ -183,16 +183,16 @@ export default function HomeSection() {
         </div>
 
         {/* Quick Actions */}
-        <div className="bg-white rounded-xl p-6 shadow-md border border-slate-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+        <div className="bg-white rounded-xl p-6 shadow-md border border-black/10">
+          <h2 className="text-xl font-bold text-[#0A0A0A] mb-4">Quick Actions</h2>
           <div className="space-y-3">
-            <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:shadow-lg transition-all font-medium">
+            <button className="w-full px-4 py-3 bg-[#C8FF00] text-[#0A0A0A] rounded-lg hover:bg-[#C8FF00]/90 transition-all font-medium">
               New Prediction
             </button>
-            <button className="w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg hover:shadow-lg transition-all font-medium">
+            <button className="w-full px-4 py-3 bg-black/5 text-[#0A0A0A] rounded-lg hover:bg-black/10 transition-all font-medium border border-black/10">
               View Recommendations
             </button>
-            <button className="w-full px-4 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg hover:shadow-lg transition-all font-medium">
+            <button className="w-full px-4 py-3 bg-black/5 text-[#0A0A0A] rounded-lg hover:bg-black/10 transition-all font-medium border border-black/10">
               View History
             </button>
           </div>
@@ -200,16 +200,16 @@ export default function HomeSection() {
       </div>
 
       {/* Recent Activity (Mock) */}
-      <div className="bg-white rounded-xl p-6 shadow-md border border-slate-200">
-        <h2 className="text-xl font-bold text-gray-900 mb-6">Recent Activity</h2>
+      <div className="bg-white rounded-xl p-6 shadow-md border border-black/10">
+        <h2 className="text-xl font-bold text-[#0A0A0A] mb-6">Recent Activity</h2>
         <div className="space-y-4">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="flex items-start gap-4 pb-4 border-b border-slate-100">
-              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+            <div key={i} className="flex items-start gap-4 pb-4 border-b border-black/5">
+              <div className="w-2 h-2 bg-[#C8FF00] rounded-full mt-2"></div>
               <div className="flex-1">
-                <p className="font-medium text-gray-900">Price prediction made</p>
-                <p className="text-sm text-gray-600 mt-1">Handmade wool carpet - Predicted at $450</p>
-                <p className="text-xs text-gray-500 mt-2">2 hours ago</p>
+                <p className="font-medium text-[#0A0A0A]">Price prediction made</p>
+                <p className="text-sm text-[#6B7280] mt-1">Handmade wool carpet - Predicted at $450</p>
+                <p className="text-xs text-[#6B7280] mt-2">2 hours ago</p>
               </div>
             </div>
           ))}
