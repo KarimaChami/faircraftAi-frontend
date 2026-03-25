@@ -4,10 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { Mail, Lock, User, Eye, EyeOff, ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { loginUser, registerUser, setToken } from "@/lib/api";
 
 export default function AuthPage() {
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -96,32 +99,17 @@ export default function AuthPage() {
     setError(null);
     setSuccess(null);
 
-    const baseUrl = "http://localhost:8000/api/v1";
-
     try {
       if (isLogin) {
-        // Login - using form data as required by FastAPI OAuth2PasswordRequestForm
-        const formData = new URLSearchParams();
-        formData.append("username", email);
-        formData.append("password", password);
-
-        const response = await fetch(`${baseUrl}/auth/login`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: formData.toString(),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.detail || "Login failed. Please check your credentials.");
-        }
-
-        setSuccess("Login successful! Redirecting...");
-        localStorage.setItem("token", data.access_token);
-        // Redirect logic would go here
+        // Login
+        const response = await loginUser(email, password);
+        setToken(response.access_token);
+        setSuccess("Login successful! Redirecting to dashboard...");
+        
+        // Redirect to dashboard after a brief delay
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 1000);
       } else {
         // Register
         if (!validateRegister()) {
@@ -129,28 +117,21 @@ export default function AuthPage() {
           return;
         }
 
-        const response = await fetch(`${baseUrl}/auth/register`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            first_name: firstName,
-            last_name: lastName,
-            email,
-            password,
-            confirm_password: confirmPassword,
-          }),
+        await registerUser({
+          first_name: firstName,
+          last_name: lastName,
+          email,
+          password,
+          confirm_password: confirmPassword,
         });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.detail || "Registration failed.");
-        }
 
         setSuccess("Registration successful! You can now log in.");
         setIsLogin(true);
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setFirstName("");
+        setLastName("");
       }
     } catch (err: any) {
       setError(err.message || "An unexpected error occurred.");
