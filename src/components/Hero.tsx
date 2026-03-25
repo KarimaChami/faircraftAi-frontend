@@ -94,17 +94,35 @@ export default function Hero() {
             
             {/* Chart placeholder */}
             <div className="flex-1 relative mb-6 border-b border-gray-800 flex items-center">
-                <svg className="w-full h-24" viewBox="0 0 100 50" preserveAspectRatio="none">
-                   {/* Fake candelsticks pattern */}
-                   {[...Array(20)].map((_, i) => {
-                      const h = 10 + Math.random() * 30;
-                      const y = 25 - h/2 + Math.random() * 10 - 5;
-                      const isUp = Math.random() > 0.5;
-                      const color = isUp ? "#d4ff15" : "#ff4757";
+                <svg className="w-full h-24" viewBox="0 0 100 50" preserveAspectRatio="none" suppressHydrationWarning>
+                   {/* Fake candelsticks pattern - using fixed data to avoid hydration mismatch */}
+                   {[
+                     {h: 22, y: 14, isUp: true},
+                     {h: 28, y: 11, isUp: false},
+                     {h: 16, y: 17, isUp: false},
+                     {h: 20, y: 15, isUp: false},
+                     {h: 24, y: 13, isUp: true},
+                     {h: 26, y: 12, isUp: true},
+                     {h: 26, y: 12, isUp: true},
+                     {h: 32, y: 9, isUp: true},
+                     {h: 28, y: 11, isUp: true},
+                     {h: 30, y: 10, isUp: true},
+                     {h: 24, y: 13, isUp: false},
+                     {h: 29, y: 10.5, isUp: false},
+                     {h: 18, y: 16, isUp: false},
+                     {h: 27, y: 11.5, isUp: true},
+                     {h: 20, y: 15, isUp: true},
+                     {h: 25, y: 12.5, isUp: false},
+                     {h: 22, y: 14, isUp: false},
+                     {h: 24, y: 13, isUp: true},
+                     {h: 19, y: 15.5, isUp: true},
+                     {h: 23, y: 13.5, isUp: false}
+                   ].map((data, i) => {
+                      const color = data.isUp ? "#d4ff15" : "#ff4757";
                       return (
                          <g key={i}>
-                           <line x1={i*5 + 2} y1={y-5} x2={i*5 + 2} y2={y+h+5} stroke={color} strokeWidth="0.5" />
-                           <rect x={i*5} y={y} width="4" height={h} fill={color} rx="1" />
+                           <line x1={i*5 + 2} y1={data.y-5} x2={i*5 + 2} y2={data.y+data.h+5} stroke={color} strokeWidth="0.5" />
+                           <rect x={i*5} y={data.y} width="4" height={data.h} fill={color} rx="1" />
                          </g>
                       )
                    })}
