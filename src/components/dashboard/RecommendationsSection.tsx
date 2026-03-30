@@ -98,12 +98,34 @@ export default function RecommendationsSection() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-[#C8FF00] rounded-xl p-8 text-[#0A0A0A] shadow-lg">
+                  <section className="relative overflow-hidden rounded-[2.5rem] bg-[#0A0A0A] p-10 lg:p-14 text-white shadow-2xl">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_70%_30%,_#C8FF00_0%,_transparent_70%)] opacity-20" />
+        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#C8FF00] rounded-full blur-[100px] opacity-10" />
+        
+        <div className="relative z-10 max-w-2xl">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#C8FF00]/10 border border-[#C8FF00]/20 mb-6 group cursor-default">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8FF00] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C8FF00]"></span>
+            </span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C8FF00]"> Recommendations </span>
+          </div>
+          
+          <h1 className="text-5xl lg:text-7xl font-black tracking-tighter mb-6 leading-[0.9]">
+            Recommendations & AI Chat
+          </h1>
+          
+          <p className="text-lg text-gray-400 font-medium max-w-md leading-relaxed">
+              Get personalized pricing advice and strategies to maximize your profits
+          </p>
+        </div>
+      </section>
+      {/* <div className="bg-[#C8FF00] rounded-xl p-8 text-[#0A0A0A] shadow-lg">
         <h1 className="text-3xl font-bold mb-2">Recommendations & AI Chat</h1>
         <p className="text-[#0A0A0A]">
           Get personalized pricing advice and strategies to maximize your profits
         </p>
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Chatbot */}
